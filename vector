@@ -1,0 +1,113 @@
+//tj wangchuk
+//vectors lab
+//01/25/25
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+//functon that greets th user
+void greetUser(vector<string> names) {
+
+    cout << "Hello, ";
+    //loops through the names
+    for (const string &name : names) {
+        cout << name << " ";
+    }
+    cout << "!" << endl;
+}
+
+int main() {
+    //first task
+    cout << "Task 1" << endl;
+    vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//prints third number
+    cout << "The 3rd number is: " << numbers[2] << endl;
+
+    numbers.pop_back();
+
+    cout << "Numbers in the vector: ";
+    
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+//2nd task
+    cout << "\nTask 2: " << endl;
+    vector<int> userVector;
+    int choice;
+
+    do {
+        //different options
+        cout << "\nChoose an operation:" << endl;
+        cout << "1. Add Element" << endl;
+        cout << "2. Display Vector" << endl;
+        cout << "3. Vector Size" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+//switch statment
+//diffeent conditins
+        switch (choice) {
+            case 1: {
+                int element;
+                cout << "Enter an integer to add: ";
+                cin >> element;
+                userVector.push_back(element);
+                break;
+            }
+            case 2:
+                cout << "Vector elements: ";
+                for (int num : userVector) {
+                    cout << num << " ";
+                }
+                cout << endl;
+                break;
+            case 3:
+                cout << "Current size of the vector: " << userVector.size() << endl;
+                break;
+            case 4:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout << "Invalid choice!" << endl;
+        }
+    } while (choice != 4);
+//task 3 
+    cout << "\nTask 3 " << endl;
+    vector<string> colors;
+    string color, response;
+
+    do {
+        //favorite olor of user
+        cout << "Enter your favorite color: ";
+        cin >> color;
+        colors.push_back(color);
+
+        cout << "Would you like to enter another favorite color? (yes/no): ";
+        cin >> response;
+    } while (response == "yes");
+
+    cout << "\nYour favorite colors are: ";
+    for (const string &col : colors) {
+        cout << col << " ";
+    }
+    cout << endl;
+//task 4 
+    cout << "\nTask 4" << endl;
+    vector<string> names;
+    int numNames;
+
+    cout << "How many names do you have? ";
+    cin >> numNames;
+//for loop
+    for (int i = 1; i <= numNames; i++) {
+        string name;
+        cout << "Enter name #" << i << ": ";
+        cin >> name;
+        names.push_back(name);
+    }
+
+    greetUser(names);
+
+    return 0;
+}
